@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Private Chat</title>
+    <link rel="stylesheet" href="style.css">
+    <script src="/socket.io/socket.io.js"></script>
+</head>
+<body>
+    <div id="auth-container">
+        <h1>Private Chat</h1>
+        <form id="login-form">
+            <input type="text" id="username" placeholder="Username" required>
+            <input type="password" id="password" placeholder="Password" required>
+            <button type="submit">Login</button>
+        </form>
+    </div>
+
+    <div id="chat-container" class="hidden">
+        <div id="connection-status">Connecting...</div>
+        <div id="chat-window"></div>
+        <form id="message-form">
+            <input type="text" id="message-input" placeholder="Type your message..." required>
+            <button type="submit">Send</button>
+        </form>
+    </div>
+
+    <script src="auth.js"></script>
+    <script>
+        // Set current user from authentication
+        window.currentUser = localStorage.getItem('username') || 'Anonymous';
+    </script>
+    <script src="chat.js"></script>
+</body>
+</html>
